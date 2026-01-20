@@ -1,6 +1,5 @@
 import logo from "@/assets/logo.png";
 import TicketButton from "@/components/TicketButton";
-import AnimatedMotorcycle from "@/components/AnimatedMotorcycle";
 import SocialLinks from "@/components/SocialLinks";
 import InfoModal from "@/components/InfoModal";
 
@@ -23,9 +22,9 @@ const Index = () => {
             className="w-14 h-14 object-contain drop-shadow-[0_0_8px_hsl(300_100%_65%/_0.15)]"
           />
           <div>
-            <h1 className="text-lg font-bold neon-text animate-glow-text">
-              РОЗЫГРЫШ МОТОЦИКЛА
-            </h1>
+          <h1 className="text-lg font-semibold text-primary">
+            РОЗЫГРЫШ МОТОЦИКЛА
+          </h1>
             <p className="text-muted-foreground text-xs">
               Выбери количество билетов
             </p>
@@ -82,10 +81,6 @@ const Index = () => {
         </div>
       </main>
 
-      {/* Animated Motorcycle - Fixed bottom right, raised above footer */}
-      <div className="fixed bottom-20 right-0 w-1/2 h-56 pointer-events-none z-0">
-        <AnimatedMotorcycle />
-      </div>
 
       {/* Footer with Social Links */}
       <footer className="py-4 px-4 border-t border-primary/20 relative z-10">
