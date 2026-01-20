@@ -1,6 +1,8 @@
-const AnimatedMotorcycle = () => {
+import { forwardRef } from "react";
+
+const AnimatedMotorcycle = forwardRef<HTMLDivElement>((_, ref) => {
   return (
-    <div className="relative w-full h-full overflow-hidden flex items-center justify-end">
+    <div ref={ref} className="relative w-full h-full overflow-hidden flex items-center justify-end">
 
       {/* Motorcycle SVG with enhanced neon glow - no red tail light */}
       <div className="relative animate-motorcycle z-10 mr-4">
@@ -201,6 +203,8 @@ const AnimatedMotorcycle = () => {
       />
     </div>
   );
-};
+});
+
+AnimatedMotorcycle.displayName = "AnimatedMotorcycle";
 
 export default AnimatedMotorcycle;
