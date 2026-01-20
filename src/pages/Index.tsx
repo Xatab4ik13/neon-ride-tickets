@@ -1,12 +1,84 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import logo from "@/assets/logo.jpg";
+import TicketButton from "@/components/TicketButton";
+import AnimatedMotorcycle from "@/components/AnimatedMotorcycle";
+import SocialLinks from "@/components/SocialLinks";
+import InfoModal from "@/components/InfoModal";
 
 const Index = () => {
+  const ticketOptions = [1, 3, 5, 10, 20];
+
+  const handleTicketPurchase = (count: number) => {
+    console.log(`Покупка ${count} билетов`);
+    // Здесь будет логика покупки
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background flex flex-col">
+      {/* Header with Logo */}
+      <header className="flex flex-col items-center pt-6 pb-4 px-4">
+        <img 
+          src={logo} 
+          alt="Logo" 
+          className="w-24 h-24 object-contain drop-shadow-[0_0_20px_hsl(300_100%_65%_/_0.8)]"
+        />
+        <h1 className="text-2xl font-bold neon-text mt-3 animate-glow-text">
+          РОЗЫГРЫШ МОТОЦИКЛА
+        </h1>
+        <p className="text-muted-foreground text-sm mt-1">
+          Выбери количество билетов
+        </p>
+      </header>
+
+      {/* Animated Motorcycle */}
+      <AnimatedMotorcycle />
+
+      {/* Ticket Buttons */}
+      <main className="flex-1 px-4 pb-4">
+        <div className="flex flex-col gap-3 max-w-sm mx-auto">
+          {ticketOptions.map((count) => (
+            <TicketButton 
+              key={count} 
+              count={count} 
+              onClick={() => handleTicketPurchase(count)}
+            />
+          ))}
+        </div>
+
+        {/* Info Buttons */}
+        <div className="flex justify-center gap-4 mt-6">
+          <InfoModal title="Информация">
+            <p className="mb-3">
+              Добро пожаловать в розыгрыш мотоцикла! 🏍️
+            </p>
+            <p className="mb-3">
+              Чем больше билетов вы приобретете, тем выше ваши шансы на победу.
+            </p>
+            <p>
+              Победитель будет определен случайным образом среди всех участников.
+            </p>
+          </InfoModal>
+          
+          <InfoModal title="Оферта">
+            <p className="mb-3">
+              Участвуя в розыгрыше, вы соглашаетесь с условиями публичной оферты.
+            </p>
+            <p className="mb-3">
+              Организатор оставляет за собой право изменять условия проведения розыгрыша.
+            </p>
+            <p>
+              Подробные условия доступны по запросу.
+            </p>
+          </InfoModal>
+        </div>
+      </main>
+
+      {/* Footer with Social Links */}
+      <footer className="py-6 px-4 border-t border-primary/20">
+        <p className="text-center text-muted-foreground text-xs mb-4">
+          Следите за нами в социальных сетях
+        </p>
+        <SocialLinks />
+      </footer>
     </div>
   );
 };
