@@ -33,9 +33,9 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Ticket Buttons - Horizontal Grid 3+2 */}
-      <main className="flex-1 px-3 pt-4 pb-2 relative z-10">
-        <div className="grid grid-cols-3 gap-2 max-w-sm mx-auto mb-2">
+      {/* Ticket Buttons - Full width grid */}
+      <main className="flex-1 px-2 pt-4 pb-2 relative z-10">
+        <div className="grid grid-cols-3 gap-1.5 mb-1.5">
           {ticketOptions.slice(0, 3).map((count) => (
             <TicketButton 
               key={count} 
@@ -44,7 +44,7 @@ const Index = () => {
             />
           ))}
         </div>
-        <div className="grid grid-cols-2 gap-2 max-w-[250px] mx-auto">
+        <div className="grid grid-cols-2 gap-1.5">
           {ticketOptions.slice(3).map((count) => (
             <TicketButton 
               key={count} 
