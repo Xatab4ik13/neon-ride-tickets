@@ -13,30 +13,39 @@ const Index = () => {
   };
 
   return (
-    <div className="h-[100dvh] bg-background flex flex-col relative overflow-hidden">
+    <div className="min-h-screen bg-background flex flex-col relative overflow-hidden">
       {/* Header with Logo on the left */}
-      <header className="flex items-center justify-between pt-2 pb-1 px-3">
-        <div className="flex items-center gap-2">
+      <header className="flex items-center justify-between pt-4 pb-2 px-4">
+        <div className="flex items-center gap-3">
           <img 
             src={logo} 
             alt="Logo" 
-            className="w-10 h-10 object-contain drop-shadow-[0_0_8px_hsl(300_100%_65%/_0.15)]"
+            className="w-14 h-14 object-contain drop-shadow-[0_0_8px_hsl(300_100%_65%/_0.15)]"
           />
           <div>
-            <h1 className="text-sm font-bold neon-text animate-glow-text">
+            <h1 className="text-lg font-bold neon-text animate-glow-text">
               РОЗЫГРЫШ МОТОЦИКЛА
             </h1>
-            <p className="text-muted-foreground text-[10px]">
+            <p className="text-muted-foreground text-xs">
               Выбери количество билетов
             </p>
           </div>
         </div>
       </header>
 
-      {/* Ticket Buttons - Uniform 5-column grid */}
-      <main className="flex-1 px-3 pt-4 pb-2 relative z-10">
-        <div className="grid grid-cols-5 gap-2">
-          {ticketOptions.map((count) => (
+      {/* Ticket Buttons - Horizontal Grid 3+2 */}
+      <main className="flex-1 px-4 pt-12 pb-6 relative z-10">
+        <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto mb-4">
+          {ticketOptions.slice(0, 3).map((count) => (
+            <TicketButton 
+              key={count} 
+              count={count} 
+              onClick={() => handleTicketPurchase(count)}
+            />
+          ))}
+        </div>
+        <div className="grid grid-cols-2 gap-4 max-w-sm mx-auto">
+          {ticketOptions.slice(3).map((count) => (
             <TicketButton 
               key={count} 
               count={count} 
@@ -46,7 +55,7 @@ const Index = () => {
         </div>
 
         {/* Info Buttons */}
-        <div className="flex justify-center gap-3 mt-3">
+        <div className="flex justify-center gap-4 mt-6">
           <InfoModal title="Информация">
             <p className="mb-3">
               Добро пожаловать в розыгрыш мотоцикла! 🏍️
@@ -73,15 +82,15 @@ const Index = () => {
         </div>
       </main>
 
-      {/* Animated Motorcycle - Fixed bottom right */}
-      <div className="fixed bottom-12 right-0 w-2/5 h-28 pointer-events-none z-0">
+      {/* Animated Motorcycle - Fixed bottom right, raised above footer */}
+      <div className="fixed bottom-20 right-0 w-1/2 h-56 pointer-events-none z-0">
         <AnimatedMotorcycle />
       </div>
 
       {/* Footer with Social Links */}
-      <footer className="py-2 px-3 border-t border-primary/20 relative z-10">
-        <p className="text-center text-muted-foreground text-[10px] mb-1">
-          Следите за нами
+      <footer className="py-4 px-4 border-t border-primary/20 relative z-10">
+        <p className="text-center text-muted-foreground text-xs mb-3">
+          Следите за нами в социальных сетях
         </p>
         <SocialLinks />
       </footer>
