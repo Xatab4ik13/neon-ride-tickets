@@ -24,9 +24,8 @@ const TicketButton = ({ count, onClick }: TicketButtonProps) => {
               className="w-4 h-4 text-primary/70 group-hover:text-primary transition-colors" 
             />
           ))}
-          {count > 3 && <span className="text-primary/70 text-xs ml-0.5">+{count - 3}</span>}
         </div>
-        <span className="text-sm font-medium text-primary/90 group-hover:text-primary transition-colors">
+        <span className="text-sm font-medium text-primary/90 group-hover:text-primary transition-colors tracking-wide">
           {count} {count === 1 ? 'билет' : count < 5 ? 'билета' : 'билетов'}
         </span>
       </div>
