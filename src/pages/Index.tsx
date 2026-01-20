@@ -33,15 +33,25 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Ticket Buttons - Uniform 5-column grid */}
+      {/* Ticket Buttons - 3 on top, 2 centered below */}
       <main className="flex-1 px-3 pt-4 pb-2 relative z-10">
-        <div className="grid grid-cols-5 gap-2">
-          {ticketOptions.map((count) => (
+        <div className="grid grid-cols-3 gap-2 mb-2">
+          {ticketOptions.slice(0, 3).map((count) => (
             <TicketButton 
               key={count} 
               count={count} 
               onClick={() => handleTicketPurchase(count)}
             />
+          ))}
+        </div>
+        <div className="flex justify-center gap-2">
+          {ticketOptions.slice(3).map((count) => (
+            <div key={count} className="w-1/3">
+              <TicketButton 
+                count={count} 
+                onClick={() => handleTicketPurchase(count)}
+              />
+            </div>
           ))}
         </div>
 
