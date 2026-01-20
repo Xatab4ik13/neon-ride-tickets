@@ -1,6 +1,7 @@
+import { forwardRef } from "react";
 import { Youtube, Instagram, Send } from "lucide-react";
 
-const SocialLinks = () => {
+const SocialLinks = forwardRef<HTMLDivElement>((_, ref) => {
   const socials = [
     { icon: Youtube, href: "#", label: "YouTube" },
     { icon: Instagram, href: "#", label: "Instagram" },
@@ -8,7 +9,7 @@ const SocialLinks = () => {
   ];
 
   return (
-    <div className="flex items-center justify-center gap-6">
+    <div ref={ref} className="flex items-center justify-center gap-6">
       {socials.map(({ icon: Icon, href, label }) => (
         <a
           key={label}
@@ -25,6 +26,8 @@ const SocialLinks = () => {
       ))}
     </div>
   );
-};
+});
+
+SocialLinks.displayName = "SocialLinks";
 
 export default SocialLinks;
