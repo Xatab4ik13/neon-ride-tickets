@@ -1,29 +1,15 @@
 const AnimatedMotorcycle = () => {
   return (
-    <div className="relative w-full h-full overflow-hidden flex items-end justify-end">
-      {/* Moving road/ground effect */}
-      <div 
-        className="absolute bottom-0 left-0 right-0 h-12 animate-road"
-        style={{
-          background: `repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 60px,
-            hsl(300 100% 65% / 0.4) 60px,
-            hsl(300 100% 65% / 0.4) 120px
-          )`,
-        }}
-      />
-      
-      {/* Speed lines - enhanced */}
+    <div className="relative w-full h-full overflow-hidden flex items-center justify-end">
+      {/* Speed lines - enhanced, no road */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(12)].map((_, i) => (
+        {[...Array(14)].map((_, i) => (
           <div
             key={i}
             className="absolute h-0.5 bg-gradient-to-r from-primary/80 to-transparent animate-road"
             style={{
               left: `${(i % 4) * 25}%`,
-              top: `${10 + (i * 7)}%`,
+              top: `${5 + (i * 6.5)}%`,
               width: `${50 + Math.random() * 80}px`,
               animationDelay: `${i * 0.08}s`,
               opacity: 0.6 + Math.random() * 0.4,
@@ -32,11 +18,11 @@ const AnimatedMotorcycle = () => {
         ))}
       </div>
 
-      {/* Motorcycle SVG with enhanced neon glow */}
-      <div className="relative animate-motorcycle z-10 mr-4 mb-8">
+      {/* Motorcycle SVG with enhanced neon glow - no red tail light */}
+      <div className="relative animate-motorcycle z-10 mr-4">
         <svg 
-          width="280" 
-          height="160" 
+          width="260" 
+          height="150" 
           viewBox="0 0 280 160" 
           className="drop-shadow-[0_0_25px_hsl(300_100%_65%)]"
         >
@@ -198,7 +184,7 @@ const AnimatedMotorcycle = () => {
             />
             <circle cx="20" cy="118" r="4" fill="hsl(300 100% 65% / 0.6)" />
             
-            {/* Headlight - animated glow */}
+            {/* Headlight - animated glow (pink only) */}
             <circle 
               cx="215" cy="65" r="10" 
               fill="hsl(300 100% 65%)"
@@ -212,24 +198,13 @@ const AnimatedMotorcycle = () => {
               cx="215" cy="65" r="25" 
               fill="hsl(300 100% 65% / 0.15)"
             />
-            
-            {/* Tail light */}
-            <circle 
-              cx="55" cy="75" r="5" 
-              fill="hsl(0 100% 50%)"
-              className="animate-pulse"
-            />
-            <circle 
-              cx="55" cy="75" r="10" 
-              fill="hsl(0 100% 50% / 0.3)"
-            />
           </g>
         </svg>
       </div>
       
       {/* Enhanced glow effect under motorcycle */}
       <div 
-        className="absolute bottom-8 right-8 w-56 h-8 rounded-full blur-2xl animate-pulse"
+        className="absolute bottom-4 right-8 w-56 h-8 rounded-full blur-2xl animate-pulse"
         style={{ background: 'hsl(300 100% 65% / 0.5)' }}
       />
       
