@@ -1,22 +1,6 @@
 const AnimatedMotorcycle = () => {
   return (
     <div className="relative w-full h-full overflow-hidden flex items-center justify-end">
-      {/* Speed lines - enhanced, no road */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(14)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute h-0.5 bg-gradient-to-r from-primary/80 to-transparent animate-road"
-            style={{
-              left: `${(i % 4) * 25}%`,
-              top: `${5 + (i * 6.5)}%`,
-              width: `${50 + Math.random() * 80}px`,
-              animationDelay: `${i * 0.08}s`,
-              opacity: 0.6 + Math.random() * 0.4,
-            }}
-          />
-        ))}
-      </div>
 
       {/* Motorcycle SVG with enhanced neon glow - no red tail light */}
       <div className="relative animate-motorcycle z-10 mr-4">

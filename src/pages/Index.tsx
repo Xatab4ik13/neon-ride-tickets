@@ -17,11 +17,16 @@ const Index = () => {
       {/* Header with Logo on the left */}
       <header className="flex items-center justify-between pt-4 pb-2 px-4">
         <div className="flex items-center gap-3">
-          <img 
-            src={logo} 
-            alt="Logo" 
-            className="w-14 h-14 object-contain drop-shadow-[0_0_25px_hsl(300_100%_65%)] animate-pulse"
-          />
+          <div className="relative">
+            {/* Outer glow layers */}
+            <div className="absolute inset-0 blur-xl bg-primary/40 rounded-full scale-150" />
+            <div className="absolute inset-0 blur-md bg-primary/60 rounded-full scale-125" />
+            <img 
+              src={logo} 
+              alt="Logo" 
+              className="relative w-14 h-14 object-contain drop-shadow-[0_0_15px_hsl(300_100%_65%)] drop-shadow-[0_0_30px_hsl(300_100%_65%/_0.8)]"
+            />
+          </div>
           <div>
             <h1 className="text-lg font-bold neon-text animate-glow-text">
               РОЗЫГРЫШ МОТОЦИКЛА
