@@ -1,4 +1,4 @@
-import logo from "@/assets/logo.jpg";
+import logo from "@/assets/logo.png";
 import TicketButton from "@/components/TicketButton";
 import AnimatedMotorcycle from "@/components/AnimatedMotorcycle";
 import SocialLinks from "@/components/SocialLinks";
@@ -20,7 +20,7 @@ const Index = () => {
           <img 
             src={logo} 
             alt="Logo" 
-            className="w-16 h-16 object-contain drop-shadow-[0_0_20px_hsl(300_100%_65%_/_0.8)]"
+            className="w-14 h-14 object-contain drop-shadow-[0_0_25px_hsl(300_100%_65%)] animate-pulse"
           />
           <div>
             <h1 className="text-lg font-bold neon-text animate-glow-text">
@@ -34,8 +34,8 @@ const Index = () => {
       </header>
 
       {/* Ticket Buttons - Horizontal Grid 3+2 */}
-      <main className="flex-1 px-4 py-6 relative z-10">
-        <div className="grid grid-cols-3 gap-3 max-w-md mx-auto mb-3">
+      <main className="flex-1 px-4 pt-12 pb-6 relative z-10">
+        <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto mb-4">
           {ticketOptions.slice(0, 3).map((count) => (
             <TicketButton 
               key={count} 
@@ -44,7 +44,7 @@ const Index = () => {
             />
           ))}
         </div>
-        <div className="grid grid-cols-2 gap-3 max-w-xs mx-auto">
+        <div className="grid grid-cols-2 gap-4 max-w-sm mx-auto">
           {ticketOptions.slice(3).map((count) => (
             <TicketButton 
               key={count} 
@@ -82,8 +82,8 @@ const Index = () => {
         </div>
       </main>
 
-      {/* Animated Motorcycle - Fixed bottom right, half screen */}
-      <div className="fixed bottom-0 right-0 w-1/2 h-64 pointer-events-none z-0">
+      {/* Animated Motorcycle - Fixed bottom right, raised above footer */}
+      <div className="fixed bottom-20 right-0 w-1/2 h-56 pointer-events-none z-0">
         <AnimatedMotorcycle />
       </div>
 
