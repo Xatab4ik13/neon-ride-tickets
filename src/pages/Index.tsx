@@ -82,14 +82,14 @@ const Index = () => {
         </div>
       </main>
 
-      {/* Animated Motorcycle - Fixed bottom right, raised above footer */}
-      <div className="fixed bottom-20 right-0 w-1/2 h-56 pointer-events-none z-0">
+      {/* Animated Motorcycle - Fixed bottom right */}
+      <div className="fixed bottom-0 right-0 w-1/2 h-48 pointer-events-none z-0">
         <AnimatedMotorcycle />
       </div>
 
       {/* Footer with Social Links */}
-      <footer className="py-4 px-4 border-t border-primary/20 relative z-10">
-        <p className="text-center text-muted-foreground text-xs mb-3">
+      <footer className="py-3 px-4 border-t border-primary/20 relative z-10">
+        <p className="text-center text-muted-foreground text-xs mb-2">
           Следите за нами в социальных сетях
         </p>
         <SocialLinks />
