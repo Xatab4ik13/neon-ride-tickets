@@ -13,29 +13,39 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      {/* Header with Logo */}
-      <header className="flex flex-col items-center pt-6 pb-4 px-4">
-        <img 
-          src={logo} 
-          alt="Logo" 
-          className="w-24 h-24 object-contain drop-shadow-[0_0_20px_hsl(300_100%_65%_/_0.8)]"
-        />
-        <h1 className="text-2xl font-bold neon-text mt-3 animate-glow-text">
-          РОЗЫГРЫШ МОТОЦИКЛА
-        </h1>
-        <p className="text-muted-foreground text-sm mt-1">
-          Выбери количество билетов
-        </p>
+    <div className="min-h-screen bg-background flex flex-col relative overflow-hidden">
+      {/* Header with Logo on the left */}
+      <header className="flex items-center justify-between pt-4 pb-2 px-4">
+        <div className="flex items-center gap-3">
+          <img 
+            src={logo} 
+            alt="Logo" 
+            className="w-16 h-16 object-contain drop-shadow-[0_0_20px_hsl(300_100%_65%_/_0.8)]"
+          />
+          <div>
+            <h1 className="text-lg font-bold neon-text animate-glow-text">
+              РОЗЫГРЫШ МОТОЦИКЛА
+            </h1>
+            <p className="text-muted-foreground text-xs">
+              Выбери количество билетов
+            </p>
+          </div>
+        </div>
       </header>
 
-      {/* Animated Motorcycle */}
-      <AnimatedMotorcycle />
-
-      {/* Ticket Buttons */}
-      <main className="flex-1 px-4 pb-4">
-        <div className="flex flex-col gap-3 max-w-sm mx-auto">
-          {ticketOptions.map((count) => (
+      {/* Ticket Buttons - Horizontal Grid 3+2 */}
+      <main className="flex-1 px-4 py-6 relative z-10">
+        <div className="grid grid-cols-3 gap-3 max-w-md mx-auto mb-3">
+          {ticketOptions.slice(0, 3).map((count) => (
+            <TicketButton 
+              key={count} 
+              count={count} 
+              onClick={() => handleTicketPurchase(count)}
+            />
+          ))}
+        </div>
+        <div className="grid grid-cols-2 gap-3 max-w-xs mx-auto">
+          {ticketOptions.slice(3).map((count) => (
             <TicketButton 
               key={count} 
               count={count} 
@@ -72,9 +82,14 @@ const Index = () => {
         </div>
       </main>
 
+      {/* Animated Motorcycle - Fixed bottom right, half screen */}
+      <div className="fixed bottom-0 right-0 w-1/2 h-64 pointer-events-none z-0">
+        <AnimatedMotorcycle />
+      </div>
+
       {/* Footer with Social Links */}
-      <footer className="py-6 px-4 border-t border-primary/20">
-        <p className="text-center text-muted-foreground text-xs mb-4">
+      <footer className="py-4 px-4 border-t border-primary/20 relative z-10">
+        <p className="text-center text-muted-foreground text-xs mb-3">
           Следите за нами в социальных сетях
         </p>
         <SocialLinks />
